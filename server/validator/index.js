@@ -10,6 +10,18 @@ exports.businessSignupValidator = (req, res, next) => {
       min: 4,
       max: 2000,
     });
+  req
+    .check("businessHp", "Please provide your business contact number")
+    .isLength({
+      min: 6,
+      max: 10,
+    });
+  req
+    .check("businessAddress", "Please provide your business address")
+    .isLength({
+      min: 6,
+      max: 500,
+    });
   req.check("password", "Please enter a password").notEmpty();
   req
     .check("password")
