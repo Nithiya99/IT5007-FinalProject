@@ -33,6 +33,22 @@ const NavBar = ({ history }) => {
           {businessIsAuthenticated() && (
             <>
               <li className="nav-item">
+                <Link to="/business/dashboard" className="nav-link">
+                  Dashboard
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to={`/business/${businessIsAuthenticated().business._id}`}
+                  className="nav-link"
+                >
+                  {`${
+                    businessIsAuthenticated().business.businessName
+                  }'s Profile`}
+                </Link>
+              </li>
+
+              <li className="nav-item">
                 <span
                   className="nav-link"
                   onClick={() => businessSignout(() => history.push("/"))}
