@@ -5,6 +5,7 @@ const {
   businessSignin,
   businessSignout,
   businessById,
+  getBusiness,
 } = require("../controllers/business");
 const { businessSignupValidator } = require("../validator/index");
 const bodyParser = require("body-parser");
@@ -15,6 +16,7 @@ router.use(bodyParser.json());
 router.get("/check", businessApiCheck);
 router.post("/signup", businessSignupValidator, businessSignup);
 router.post("/signin", businessSignin);
+router.get("/:businessId", getBusiness);
 router.get("/signout", businessSignout);
 
 // any route containing: businessId, our app will first excute businesById()

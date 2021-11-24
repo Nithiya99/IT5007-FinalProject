@@ -67,6 +67,13 @@ exports.businessById = (req, res, next, id) => {
   });
 };
 
+exports.getBusiness = (req, res) => {
+  // We do not want to return the password to the front end
+  req.businessProfile.hashed_password = undefined;
+  req.businessProfile.salt = undefined;
+  return res.json(req.businessProfile);
+};
+
 exports.businessSignout = (req, res) => {
   res.clearCookie("b");
   return res.json({ message: "Signout Success!" });

@@ -6,6 +6,7 @@ import LandingPage from "./core/LandingPage";
 import Signup from "./core/Business/Signup";
 import Signin from "./core/Business/Signin";
 import NavBar from "./core/NavBar";
+import Dashboard from "./core/Business/Dashboard";
 
 function MainRouter(props) {
   return (
@@ -17,6 +18,7 @@ function MainRouter(props) {
         {/* Business Routes */}
         <Route exact path="/business/signup" component={Signup}></Route>
         <Route exact path="/business/signin" component={Signin}></Route>
+        <Route exact path="/business/dashboard" component={Dashboard}></Route>
       </Switch>
     </div>
   );
