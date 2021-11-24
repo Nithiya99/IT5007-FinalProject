@@ -18,7 +18,7 @@ function MainRouter(props) {
         {/* Business Routes */}
         <Route exact path="/business/signup" component={Signup}></Route>
         <Route exact path="/business/signin" component={Signin}></Route>
-        <Route exact path="/business/dashboard" component={Dashboard}></Route>
+        <Route exact path="/business/dashboard/" component={Dashboard}></Route>
       </Switch>
     </div>
   );

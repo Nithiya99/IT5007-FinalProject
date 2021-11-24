@@ -74,7 +74,7 @@ exports.getBusiness = (req, res) => {
   return res.json(req.businessProfile);
 };
 
-exports.businessSignout = (req, res) => {
+exports.businessSignout = (req, res, err) => {
   res.clearCookie("b");
   return res.json({ message: "Signout Success!" });
 };
