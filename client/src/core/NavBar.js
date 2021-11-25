@@ -6,7 +6,7 @@ import { businessSignout, businessIsAuthenticated } from "../authentication";
 
 const NavBar = ({ history }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <Link to="/" className="navbar-brand">
         MerriMe
       </Link>

@@ -36,7 +36,7 @@ exports.photographyByBusiness = (req, res) => {
 exports.getAllPhotography = (req, res) => {
   const photographies = Photography.find()
     .populate("serviceBy", "_id businessName")
-    .select("_id title description image created")
+    .select("_id title description price image created")
     .then((photographies) => {
       res.json({ photographies }).catch((err) => console.log(err));
     });

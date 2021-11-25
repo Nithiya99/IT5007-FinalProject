@@ -4,11 +4,12 @@ const { ObjectId } = mongoose.Schema;
 const photographySchema = new mongoose.Schema({
   title: {
     type: String,
-    requires: true,
   },
   description: {
     type: String,
-    requires: true,
+  },
+  price: {
+    type: String,
   },
   image: {
     type: String,

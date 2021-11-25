@@ -55,6 +55,10 @@ exports.createPhotographyServiceValidator = (req, res, next) => {
       min: 4,
       max: 500,
     });
+  // Imagw
+  req.check("image", "Please add an image of your service").notEmpty();
+  // Price
+  req.check("price", "Provide the price for your service").notEmpty();
   //   Check for errors
   const errors = req.validationErrors();
   // if error show the first one as they happen

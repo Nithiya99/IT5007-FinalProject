@@ -91,7 +91,7 @@ class Signup extends Component {
               style={{ display: success ? "" : "none" }}
             >
               New account successfully created! Please{" "}
-              <Link to="/business/signin">Sign In</Link>.
+              <Link to="/business/signin">Sign Up</Link>.
             </div>
             {loading ? (
               <div className="jumbotron text-center">
