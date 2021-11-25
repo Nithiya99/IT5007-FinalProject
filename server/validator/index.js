@@ -39,3 +39,29 @@ exports.businessSignupValidator = (req, res, next) => {
   // proceed to next middleware
   next();
 };
+
+exports.createPhotographyServiceValidator = (req, res, next) => {
+  // title
+  req.check("title", "Give a name for your service").notEmpty();
+  req.check("title", "Title must be between 4 to 150 characters").isLength({
+    min: 4,
+    max: 150,
+  });
+  // description
+  req.check("description", "Write a description").notEmpty();
+  req
+    .check("description", "Description must be between 4 to 2000 characters")
+    .isLength({
+      min: 4,
+      max: 500,
+    });
+  //   Check for errors
+  const errors = req.validationErrors();
+  // if error show the first one as they happen
+  if (errors) {
+    const firstError = errors.map((error) => error.msg)[0];
+    return res.status(400).json({ error: firstError });
+  }
+  // proceed to next middleware
+  next();
+};

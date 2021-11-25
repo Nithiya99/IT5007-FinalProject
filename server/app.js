@@ -27,6 +27,7 @@ app.get("/", (req, res, next) => {
   res.send("Api running");
 });
 const businessRoutes = require("./routes/business");
+const serviceRoutes = require("./routes/service");
 
 // middleware
 app.use(morgan("dev"));
@@ -35,6 +36,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
 app.use("/api/business", businessRoutes);
+app.use("/api/service", serviceRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

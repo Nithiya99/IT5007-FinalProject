@@ -74,6 +74,14 @@ exports.getBusiness = (req, res) => {
   return res.json(req.businessProfile);
 };
 
+exports.requireBusinessSignin = expressJwt({
+  // if the token is valid, express jwt appends the verified users id in
+  // an auth key to the request object
+  secret: process.env.JWT_SECRET,
+  algorithms: ["HS256"],
+  userProperty: "auth",
+});
+
 exports.businessSignout = (req, res, err) => {
   res.clearCookie("b");
   return res.json({ message: "Signout Success!" });
