@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const expressJwt = require("express-jwt");
 const Customer = require("../models/customer");
-const business = require("../models/business");
 
 exports.customerApiCheck = (req, res, next) => {
   res.send("Api customer running");
