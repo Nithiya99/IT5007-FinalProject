@@ -44,7 +44,7 @@ exports.businessSignin = (req, res) => {
       { _id: business._id },
       process.env.JWT_SECRET
     );
-    // persist the token as 't' in cookie with expiry date
+    // persist the token as 'b' in cookie with expiry date
     res.cookie("b", businessToken, { expire: new Date() + 9999 });
     // return response with business and token to front end
     const { _id, businessName, businessEmail } = business;
