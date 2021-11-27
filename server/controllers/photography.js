@@ -20,16 +20,22 @@ exports.createPhotographySevice = async (req, res) => {
 };
 
 exports.photographyByBusiness = (req, res) => {
+  // Photography.find({ serviceBy: req.businessProfile._id })
+  //   .populate("serviceBy", "_id businessName")
+  //   .sort("_created")
+  //   .exec((err, photographyServices) => {
+  //     if (err) {
+  //       return res.status(400).json({
+  //         error: err,
+  //       });
+  //     }
+  //     res.json(photographyServices);
+  //   });
   Photography.find({ serviceBy: req.businessProfile._id })
     .populate("serviceBy", "_id businessName")
-    .sort("_created")
-    .exec((err, photographyServices) => {
-      if (err) {
-        return res.status(400).json({
-          error: err,
-        });
-      }
-      res.json(photographyServices);
+    .select("_id title description price image created")
+    .then((photographies) => {
+      res.json({ photographies }).catch((err) => console.log(err));
     });
 };
 

@@ -1,8 +1,14 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { NavDropdown } from "react-bootstrap";
 
 // Component Imports
-import { businessSignout, businessIsAuthenticated } from "../authentication";
+import {
+  businessSignout,
+  businessIsAuthenticated,
+  customerIsAuthenticated,
+  customerSignout,
+} from "../authentication";
 
 const NavBar = ({ history }) => {
   return (
@@ -23,10 +29,53 @@ const NavBar = ({ history }) => {
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
-          {!businessIsAuthenticated() && (
+          {!businessIsAuthenticated() && !customerIsAuthenticated() && (
             <>
               <li className="nav-item">
-                <Link to="/business/signin">Merchant Login</Link>
+                <Link className="nav-link" to="/business/signin">
+                  Merchant Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/customer/signin">
+                  Customer Login
+                </Link>
+              </li>
+            </>
+          )}
+          {customerIsAuthenticated() && (
+            <>
+              <li className="nav-item">
+                <Link className="nav-link" to="/customer/dashboard">
+                  Dashboard
+                </Link>
+              </li>
+              <NavDropdown title="Services" id="basic-nav-dropdown">
+                <NavDropdown.Item>
+                  <Link to="/photographyService">Photography</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item disabled href="#action/3.2">
+                  Wedding Dresses
+                </NavDropdown.Item>
+                <NavDropdown.Item disabled href="#action/3.3">
+                  Make-Up
+                </NavDropdown.Item>
+              </NavDropdown>
+              <li className="nav-item">
+                <Link
+                  to={`/customer/${customerIsAuthenticated().customer._id}`}
+                  className="nav-link"
+                >
+                  {`${customerIsAuthenticated().customer.username}'s Profile`}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <span
+                  className="nav-link"
+                  onClick={() => customerSignout(() => history.push("/"))}
+                >
+                  Sign Out
+                </span>
               </li>
             </>
           )}

@@ -44,8 +44,8 @@ exports.customerSignin = (req, res) => {
     // persist the token as 'c' in cookie with expiry date
     res.cookie("c", customerToken, { expire: new Date() + 9999 });
     // return response with customer and token to frontend
-    const { _id, name, email } = customer;
-    return res.json({ customerToken, customer: { _id, name, email } });
+    const { _id, username, email } = customer;
+    return res.json({ customerToken, customer: { _id, username, email } });
   });
 };
 

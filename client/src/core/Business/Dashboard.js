@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Nav, Badge, Tab, Button } from "react-bootstrap";
 import { Pencil, Plus, Trash } from "react-bootstrap-icons";
-import { listAllPhotography } from "../../APIs/photography";
+import {
+  listPhotographyByBiz,
+  listAllPhotography,
+} from "../../APIs/photography";
 import { businessIsAuthenticated } from "../../authentication";
 
 class Dashboard extends Component {
@@ -14,13 +17,22 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    listAllPhotography().then((data) => {
-      if (data.error) {
-        console.log(data.error);
-      } else {
-        this.setState({ photographyServices: data.photographies });
+    // listAllPhotography().then((data) => {
+    //   if (data.error) {
+    //     console.log(data.error);
+    //   } else {
+    //     this.setState({ photographyServices: data.photographies });
+    //   }
+    // });
+    listPhotographyByBiz(businessIsAuthenticated().business._id).then(
+      (data) => {
+        if (data.error) {
+          console.log(data.error);
+        } else {
+          this.setState({ photographyServices: data.photographies });
+        }
       }
-    });
+    );
   }
 
   renderPhotography = (photographyServices) => (
@@ -37,7 +49,10 @@ class Dashboard extends Component {
             />
             <div className="card-body">
               <h5 className="card-title">{item.title}</h5>
-              <p className="card-text">{item.description}</p>
+              <div style={{ height: "125px", overflow: "auto" }}>
+                <p className="card-text">{item.description}</p>
+              </div>
+
               <p className="lead">${item.price}</p>
               <span className="d-flex">
                 <button className="btn btn-warning">

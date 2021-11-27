@@ -97,6 +97,7 @@ class AddPhotography extends Component {
                             placeholder="Enter a title for your photography service"
                             className="form-control"
                             onChange={this.handleChange("title")}
+                            value={title}
                           />
                         </div>
                       </div>
@@ -111,6 +112,7 @@ class AddPhotography extends Component {
                             placeholder="Please provide the detaild here"
                             className="form-control"
                             onChange={this.handleChange("description")}
+                            value={description}
                           />
                         </div>
                       </div>
@@ -123,6 +125,7 @@ class AddPhotography extends Component {
                             placeholder="Please provide the url for image"
                             className="form-control"
                             onChange={this.handleChange("image")}
+                            value={image}
                           />
                         </div>
                       </div>
@@ -147,6 +150,7 @@ class AddPhotography extends Component {
                               aria-label="Username"
                               aria-describedby="basic-addon1"
                               onChange={this.handleChange("price")}
+                              value={price}
                             />
                           </div>
                         </div>

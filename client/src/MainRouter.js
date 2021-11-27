@@ -9,6 +9,11 @@ import NavBar from "./core/NavBar";
 import Dashboard from "./core/Business/Dashboard";
 import Profile from "./core/Business/Profile";
 import AddPhotography from "./core/Services/AddPhotography";
+import CustomerSignin from "./core/Customer/CustomerSignin";
+import CustomerSignup from "./core/Customer/CustomerSignup";
+import CustomerDashboard from "./core/Customer/CustomerDashboard";
+import CustomerProfile from "./core/Customer/CustomerProfile";
+import PhotographyCustomerView from "./core/Services/PhotographyCustomerView";
 
 function MainRouter(props) {
   return (
@@ -26,6 +31,25 @@ function MainRouter(props) {
           exact
           path="/business/photography/add"
           component={AddPhotography}
+        ></Route>
+
+        {/* Customer Routes */}
+        <Route exact path="/customer/signin" component={CustomerSignin}></Route>
+        <Route exact path="/customer/signup" component={CustomerSignup}></Route>
+        <Route
+          exact
+          path="/customer/dashboard"
+          component={CustomerDashboard}
+        ></Route>
+        <Route
+          exact
+          path="/customer/:customerId"
+          component={CustomerProfile}
+        ></Route>
+        <Route
+          exact
+          path="/photographyService"
+          component={PhotographyCustomerView}
         ></Route>
       </Switch>
     </div>
