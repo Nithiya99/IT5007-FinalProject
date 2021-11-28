@@ -4,6 +4,8 @@ const {
   createPhotographySevice,
   photographyByBusiness,
   getAllPhotography,
+  getPhotographyById,
+  getPhotographyDetails,
 } = require("../controllers/photography");
 const {
   requireBusinessSignin,
@@ -21,6 +23,7 @@ router.get(
   requireBusinessSignin,
   photographyByBusiness
 );
+router.get("/photography/:photographyId", getPhotographyDetails);
 router.post(
   "/photography/new/:businessId",
   requireBusinessSignin,
@@ -30,5 +33,6 @@ router.post(
 
 // any route containing: businessId, our app will first excute businesById()
 router.param("businessId", businessById);
+router.param("photographyId", getPhotographyById);
 
 module.exports = router;
