@@ -24,11 +24,11 @@ class CustomerProfile extends Component {
                   </tbody>
                 </table>
                 <span className="d-flex">
-                  <button className="btn btn-primary ml-auto">
-                    Edit Profile <Pencil size={15} />
-                  </button>
                   <button className="btn btn-light ">
                     Delete Account <Trash size={15} />
+                  </button>
+                  <button className="btn btn-primary ml-auto">
+                    Edit Profile <Pencil size={15} />
                   </button>
                 </span>
               </div>
