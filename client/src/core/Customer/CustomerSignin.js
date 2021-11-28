@@ -48,7 +48,7 @@ class CutomerSignin extends Component {
             <span>
               <h1>Customer Login</h1>
               <p>
-                Don't have an acoount?
+                Don't have an acount?
                 <Link to="/customer/signup">Signup here.</Link>
               </p>
             </span>

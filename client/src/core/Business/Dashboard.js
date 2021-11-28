@@ -55,10 +55,10 @@ class Dashboard extends Component {
 
               <p className="lead">${item.price}</p>
               <span className="d-flex">
-                <button className="btn btn-warning">
+                <button className="btn btn-primary">
                   Edit <Pencil size={15} />
                 </button>
-                <button className="btn btn-danger ml-auto">
+                <button className="btn btn-light ml-auto">
                   Delete <Trash size={15} />
                 </button>
               </span>
