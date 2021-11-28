@@ -70,6 +70,16 @@ const NavBar = ({ history }) => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link
+                  to={`/customer/cart/${
+                    customerIsAuthenticated().customer._id
+                  }`}
+                  className="nav-link"
+                >
+                  My Cart
+                </Link>
+              </li>
+              <li className="nav-item">
                 <span
                   className="nav-link"
                   onClick={() => customerSignout(() => history.push("/"))}

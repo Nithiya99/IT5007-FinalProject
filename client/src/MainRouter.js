@@ -14,6 +14,7 @@ import CustomerSignup from "./core/Customer/CustomerSignup";
 import CustomerDashboard from "./core/Customer/CustomerDashboard";
 import CustomerProfile from "./core/Customer/CustomerProfile";
 import PhotographyCustomerView from "./core/Services/PhotographyCustomerView";
+import Cart from "./core/Customer/Cart";
 
 function MainRouter(props) {
   return (
@@ -46,6 +47,7 @@ function MainRouter(props) {
           path="/customer/:customerId"
           component={CustomerProfile}
         ></Route>
+        <Route exact path="/customer/cart/:customerId" component={Cart}></Route>
         <Route
           exact
           path="/photographyService"

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Badge } from "react-bootstrap";
+import { Basket2Fill, HeartFill } from "react-bootstrap-icons";
 import { listAllPhotography } from "../../APIs/photography";
 
 class PhotographyCustomerView extends Component {
@@ -45,9 +46,12 @@ class PhotographyCustomerView extends Component {
                     alert("Feature Coming Soon...");
                   }}
                 >
-                  Like
+                  <HeartFill />
                 </button>
-                <button className="btn btn-info ml-auto">Add to Cart</button>
+                <button className="btn btn-info mx-auto">View Details</button>
+                <button className="btn btn-warning ml-auto">
+                  <Basket2Fill />
+                </button>
               </span>
             </div>
           </div>
