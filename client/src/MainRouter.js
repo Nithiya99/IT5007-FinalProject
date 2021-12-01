@@ -16,6 +16,7 @@ import CustomerProfile from "./core/Customer/CustomerProfile";
 import PhotographyCustomerView from "./core/Services/PhotographyCustomerView";
 import Cart from "./core/Customer/Cart";
 import PhotographyDetailView from "./core/Services/PhotographyDetailView";
+import Tutorial7 from "./Tutorial7";
 
 function MainRouter(props) {
   return (
@@ -23,6 +24,8 @@ function MainRouter(props) {
       <NavBar />
       <Switch>
         <Route exact path="/" component={LandingPage}></Route>
+
+        <Route exact path="/tutorial7" component={Tutorial7}></Route>
 
         {/* Business Routes */}
         <Route exact path="/business/signup" component={Signup}></Route>

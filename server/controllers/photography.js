@@ -67,3 +67,12 @@ exports.getAllPhotography = (req, res) => {
       res.json({ photographies }).catch((err) => console.log(err));
     });
 };
+
+exports.tut7 = (req, res) => {
+  const photographies = Photography.find()
+    .populate("serviceBy", "_id businessName")
+    .select("_id title description price created")
+    .then((photographies) => {
+      res.json({ photographies }).catch((err) => console.log(err));
+    });
+};

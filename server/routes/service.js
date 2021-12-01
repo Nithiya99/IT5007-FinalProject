@@ -6,6 +6,7 @@ const {
   getAllPhotography,
   getPhotographyById,
   getPhotographyDetails,
+  tut7,
 } = require("../controllers/photography");
 const {
   requireBusinessSignin,
@@ -18,6 +19,7 @@ const router = express.Router();
 // Photography Service Routes
 router.get("/photography/check", photographyServiceCheck);
 router.get("/photography/all", getAllPhotography);
+router.get("/photography/tut7", tut7);
 router.get(
   "/photography/by/:businessId",
   requireBusinessSignin,
