@@ -6,6 +6,7 @@ const {
   customerSignout,
   customerById,
   getCustomer,
+  addToCart,
 } = require("../controllers/customer");
 const bodyParser = require("body-parser");
 const { customerSignupValidator } = require("../validator");
@@ -18,6 +19,7 @@ router.post("/signup", customerSignupValidator, customerSignup);
 router.post("/signin", customerSignin);
 router.get("/:customerId", getCustomer);
 router.get("/signout", customerSignout);
+router.post("/addToCart", addToCart);
 
 router.param("customerId", customerById);
 

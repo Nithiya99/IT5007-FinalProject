@@ -32,6 +32,11 @@ const NavBar = ({ history }) => {
           {!businessIsAuthenticated() && !customerIsAuthenticated() && (
             <>
               <li className="nav-item">
+                <Link className="nav-link" to="/tutorial7">
+                  Tutorial 7
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/business/signin">
                   Merchant Login
                 </Link>

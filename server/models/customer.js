@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { v1: uuidv1 } = require("uuid");
 const crypto = require("crypto");
-const {ObjectId} = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 var customerSchema = new mongoose.Schema({
   username: {
@@ -20,7 +20,7 @@ var customerSchema = new mongoose.Schema({
   },
   cart: [
     {
-      type: ObjectId,
+      type: String,
       ref: "Photography",
     },
   ],

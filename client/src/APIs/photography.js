@@ -8,6 +8,16 @@ export const listAllPhotography = () => {
     .catch((err) => console.log(err));
 };
 
+export const tutorial7 = () => {
+  return fetch("http://localhost:5000/api/service/photography/tut7", {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
 export const listPhotographyByBiz = (businessId) => {
   return fetch(
     "http://localhost:5000/api/service/photography/by/" + `${businessId}`,

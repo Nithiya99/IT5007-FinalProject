@@ -1,9 +1,9 @@
 import React, { Component, Profiler } from "react";
 import { Link } from "react-router-dom";
 import { Basket2Fill, HeartFill } from "react-bootstrap-icons";
-import { listAllPhotography } from "../APIs/photography";
+import { listAllPhotography, tutorial7 } from "./APIs/photography";
 
-class LandingPage extends Component {
+class Tutorial7 extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,7 +12,7 @@ class LandingPage extends Component {
   }
 
   componentDidMount() {
-    listAllPhotography().then((data) => {
+    tutorial7().then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
@@ -27,12 +27,12 @@ class LandingPage extends Component {
       {photographyServices.map((item, i) => (
         <div className="col mb-4" key={i}>
           <div className="card">
-            <img
+            {/* <img
               className="card-img-top"
               style={{ height: "150px" }}
               src={item.image}
               alt={item.title}
-            />
+            /> */}
             <div className="card-body">
               <h5 className="card-title">
                 <Link
@@ -85,13 +85,7 @@ class LandingPage extends Component {
         }}
       >
         <div>
-          <div className="jumbotron jumbotron-fluid">
-            <div className="container">
-              <h1 className="display-4">Merri-Me</h1>
-              <p className="lead">Your wedding planning made easy</p>
-            </div>
-          </div>
-          <div className="container-fluid">
+          <div className="container-fluid mt-5">
             <div className="row justify-content-md-center">
               <div className="col-md-10">
                 <div className="card">
@@ -111,4 +105,4 @@ class LandingPage extends Component {
   }
 }
 
-export default LandingPage;
+export default Tutorial7;
