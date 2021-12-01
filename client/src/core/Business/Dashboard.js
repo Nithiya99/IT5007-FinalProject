@@ -46,17 +46,20 @@ class Dashboard extends Component {
             />
             <div className="card-body">
               <h5 className="card-title">{item.title}</h5>
+              <p className="text-muted">
+                Posted By: {item.serviceBy.businessName}
+              </p>
               <div style={{ height: "125px", overflow: "auto" }}>
                 <p className="card-text">{item.description}</p>
               </div>
 
               <p className="lead">${item.price}</p>
               <span className="d-flex">
-                <button className="btn btn-primary">
-                  Edit <Pencil size={15} />
-                </button>
-                <button className="btn btn-light ml-auto">
+                <button className="btn btn-light ">
                   Delete <Trash size={15} />
+                </button>
+                <button className="btn btn-primary ml-auto">
+                  Edit <Pencil size={15} />
                 </button>
               </span>
             </div>

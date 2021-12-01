@@ -42,6 +42,7 @@ class LandingPage extends Component {
                   {item.title}
                 </Link>
               </h5>
+              {console.log(item.serviceBy)}
               <div style={{ height: "125px", overflow: "auto" }}>
                 <p className="card-text">{item.description}</p>
               </div>
@@ -57,7 +58,7 @@ class LandingPage extends Component {
                   <HeartFill />
                 </button>
                 <button
-                  className="btn btn-warning ml-auto"
+                  className="btn btn-primary ml-auto"
                   onClick={() => {
                     alert("Please log in");
                   }}

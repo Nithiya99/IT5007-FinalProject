@@ -1,9 +1,8 @@
-import React, { Component,  Profiler } from "react";
+import React, { Component, Profiler } from "react";
 import { Link } from "react-router-dom";
 import { Button, Badge } from "react-bootstrap";
 import { Basket2Fill, HeartFill } from "react-bootstrap-icons";
 import { listAllPhotography } from "../../APIs/photography";
-
 
 class PhotographyCustomerView extends Component {
   constructor() {
@@ -58,7 +57,7 @@ class PhotographyCustomerView extends Component {
                 >
                   <HeartFill />
                 </button>
-                <button className="btn btn-warning ml-auto">
+                <button className="btn btn-primary ml-auto">
                   <Basket2Fill />
                 </button>
               </span>
@@ -69,30 +68,30 @@ class PhotographyCustomerView extends Component {
     </div>
   );
   render() {
-   
     return (
-      <Profiler id="PhotographyCustomerView" onRender={
-        (id, phase, actualDuration) => {
-        console.log({id, phase, actualDuration})
-        }} >
-      <div className="container-fluid mt-4">
-        <div className="row justify-content-md-center">
-          <div className="col-md-10">
-            <h1 className="pb-3">Photography Service Listings</h1>
-            <Button variant="info" className="mb-3">
-              Photography Packages{" "}
-              <Badge bg="secondary">
-                {this.state.photographyServices.length}
-              </Badge>
-            </Button>
-            {this.renderPhotography(this.state.photographyServices)}
+      <Profiler
+        id="PhotographyCustomerView"
+        onRender={(id, phase, actualDuration) => {
+          console.log({ id, phase, actualDuration });
+        }}
+      >
+        <div className="container-fluid mt-4">
+          <div className="row justify-content-md-center">
+            <div className="col-md-10">
+              <h1 className="pb-3">Photography Service Listings</h1>
+              <Button variant="info" className="mb-3">
+                Photography Packages{" "}
+                <Badge bg="secondary">
+                  {this.state.photographyServices.length}
+                </Badge>
+              </Button>
+              {this.renderPhotography(this.state.photographyServices)}
+            </div>
           </div>
         </div>
-      </div>
       </Profiler>
     );
   }
 }
-
 
 export default PhotographyCustomerView;
