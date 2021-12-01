@@ -71,11 +71,30 @@ exports.getCustomer = (req, res) => {
 exports.addToCart = (req, res) => {
   let customerId = req.body.customerId;
   let productId = req.body.productId;
-  Customer.findOne(customerId, (err, customer) => {
+  Customer.findOne({ customerId }, (err, customer) => {
     if (err | !customer) {
       return res.status(401).json({
         error: "Something went wrong.",
       });
+    } else {
+      if (customer) {
+        let inCart = false;
+        customer.cart.forEach(function (item) {
+          if (item == productId) {
+            inCart = true;
+            return res.status(401).json({
+              error: "Item already in cart",
+            });
+          }
+        });
+        if (!inCart) {
+          // Not working
+          customer.cart.push(productId);
+          return res.status(200).json({
+            message: "Item added successfully to cart",
+          });
+        }
+      }
     }
   });
 };
