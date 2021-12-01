@@ -49,7 +49,7 @@ class CutomerSignin extends Component {
               <h1>Customer Login</h1>
               <p>
                 Don't have an acount?
-                <Link to="/customer/signup">Signup here.</Link>
+                <Link to="/customer/signup"> Sign up here.</Link>
               </p>
             </span>
           </div>
@@ -95,7 +95,7 @@ class CutomerSignin extends Component {
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
               >
-                Login
+                Sign in
               </button>
             </form>
           </div>

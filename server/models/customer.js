@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { v1: uuidv1 } = require("uuid");
 const crypto = require("crypto");
+const {ObjectId} = mongoose.Schema;
 
 var customerSchema = new mongoose.Schema({
   username: {

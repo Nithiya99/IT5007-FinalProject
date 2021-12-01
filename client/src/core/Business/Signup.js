@@ -75,7 +75,7 @@ class Signup extends Component {
         <div className="row">
           <div className="col">
             <span>
-              <h1>Business Signup</h1>
+              <h1>Business sign up</h1>
               <p>Register your business here.</p>
             </span>
           </div>
