@@ -27,7 +27,7 @@ class Signin extends Component {
     this.setState({ loading: true });
     const { businessEmail, password } = this.state;
     const business = { businessEmail, password };
-    // console.log(business);
+    console.log(business);
     businessSignin(business).then((data) => {
       if (data.error) {
         this.setState({ error: data.error, loading: false });
@@ -55,7 +55,7 @@ class Signin extends Component {
               <h1>Business Login</h1>
               <p>
                 Don't have a business account?
-                <Link to="/business/signup">Signup here.</Link>
+                <Link to="/business/signup"> Sign up here.</Link>
               </p>
             </span>
           </div>

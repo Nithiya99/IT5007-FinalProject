@@ -49,8 +49,8 @@ class CustomerSignup extends Component {
           <div className="row">
             <div className="col">
               <span>
-                <h1>Customer Signup</h1>
-                <p>Signup here to start your wedding planning.</p>
+                <h1>Customer sign up</h1>
+                <p>Sign up here to start your wedding planning.</p>
               </span>
             </div>
             <div className="col">
@@ -112,7 +112,7 @@ class CustomerSignup extends Component {
                   onClick={this.clickSubmit}
                   className="btn btn-raised btn-primary"
                 >
-                  Login
+                  Sign up
                 </button>
               </form>
             </div>

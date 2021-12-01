@@ -5,19 +5,19 @@ exports.businessSignupValidator = (req, res, next) => {
   req
     .check("businessEmail", "Please enter a valid email")
     .matches(/.\@.+\..+/)
-    .withMessage("Email must contain @")
+    .withMessage("Email must contain domain (e.g. @gmail.com)")
     .isLength({
       min: 4,
       max: 2000,
     });
   req
-    .check("businessHp", "Please provide your business contact number")
+    .check("businessHp", "Please provide your 8 digits business contact number")
     .isLength({
-      min: 6,
-      max: 10,
+      min: 8,
+      max: 8,
     });
   req
-    .check("businessAddress", "Please provide your business address")
+    .check("businessAddress", "Please provide your full business address")
     .isLength({
       min: 6,
       max: 500,

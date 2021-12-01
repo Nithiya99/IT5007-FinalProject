@@ -75,7 +75,7 @@ class Signup extends Component {
         <div className="row">
           <div className="col">
             <span>
-              <h1>Business Signup</h1>
+              <h1>Business sign up</h1>
               <p>Register your business here.</p>
             </span>
           </div>
@@ -91,7 +91,7 @@ class Signup extends Component {
               style={{ display: success ? "" : "none" }}
             >
               New account successfully created! Please{" "}
-              <Link to="/business/signin">Sign Up</Link>.
+              <Link to="/business/signin">Sign In</Link>.
             </div>
             {loading ? (
               <div className="jumbotron text-center">
@@ -139,7 +139,7 @@ class Signup extends Component {
                   Business Contact
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   onChange={this.handleChange("businessHp")}
                   value={businessHp}
@@ -160,7 +160,7 @@ class Signup extends Component {
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
               >
-                Login
+                Sign Up
               </button>
             </form>
           </div>
