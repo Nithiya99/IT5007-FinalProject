@@ -110,6 +110,21 @@ export const readBusiness = (businessId, token) => {
     .catch((err) => console.log(err));
 };
 
+export const getBusiness = (businessId) => {
+  console.log(businessId);
+  return fetch("http://localhost:5000/business/" + `${businessId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
 export const customerSignout = (next) => {
   if (typeof window !== "undefined") localStorage.removeItem("customerJWT");
   next();

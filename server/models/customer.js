@@ -17,6 +17,12 @@ var customerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cart: [
+    {
+      type: ObjectId,
+      ref: "Photography",
+    },
+  ],
   salt: String,
   created: {
     type: Date,

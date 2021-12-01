@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { photographyDetail } from "../../APIs/photography";
+import { customerIsAuthenticated, getBusiness } from "../../authentication";
 
 class PhotographyDetailView extends Component {
   constructor() {
@@ -45,6 +46,21 @@ class PhotographyDetailView extends Component {
               </p>
               <p className="card-text">{photographyService.description}</p>
               <p className="lead">${photographyService.price}</p>
+              {customerIsAuthenticated() && (
+                <>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      console.log(
+                        photographyService._id,
+                        customerIsAuthenticated().customer._id
+                      );
+                    }}
+                  >
+                    Add to cart
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

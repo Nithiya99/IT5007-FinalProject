@@ -31,7 +31,7 @@ export const listPhotographyByBiz = (businessId) => {
 };
 
 export const photographyDetail = (photographyId) => {
-  console.log(photographyId);
+  // console.log(photographyId);
   return fetch(
     "http://localhost:5000/api/service/photography/" + `${photographyId}`,
     {

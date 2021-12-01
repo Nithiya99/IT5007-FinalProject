@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Nav, Badge, Tab, Button } from "react-bootstrap";
 import { Pencil, Plus, Trash } from "react-bootstrap-icons";
-import {
-  listPhotographyByBiz,
-  listAllPhotography,
-} from "../../APIs/photography";
+import { listPhotographyByBiz } from "../../APIs/photography";
 import { businessIsAuthenticated } from "../../authentication";
 
 class Dashboard extends Component {

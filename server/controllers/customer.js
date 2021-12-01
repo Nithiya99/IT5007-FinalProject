@@ -68,6 +68,18 @@ exports.getCustomer = (req, res) => {
   return res.json(req.customerProfile);
 };
 
+exports.addToCart = (req, res) => {
+  let customerId = req.body.customerId;
+  let productId = req.body.productId;
+  Customer.findOne(customerId, (err, customer) => {
+    if (err | !customer) {
+      return res.status(401).json({
+        error: "Something went wrong.",
+      });
+    }
+  });
+};
+
 exports.customerSignout = (req, res, err) => {
   res.clearCookie("c");
   return res.json({ message: "Signout Success" });
