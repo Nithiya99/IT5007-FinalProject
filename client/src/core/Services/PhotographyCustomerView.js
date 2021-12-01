@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component,  Profiler } from "react";
 import { Link } from "react-router-dom";
 import { Button, Badge } from "react-bootstrap";
 import { Basket2Fill, HeartFill } from "react-bootstrap-icons";
 import { listAllPhotography } from "../../APIs/photography";
+
 
 class PhotographyCustomerView extends Component {
   constructor() {
@@ -21,6 +22,7 @@ class PhotographyCustomerView extends Component {
       }
     });
   }
+
   renderPhotography = (photographyServices) => (
     <div className="row row-cols-1 row-cols-md-5">
       {console.log(photographyServices)}
@@ -67,7 +69,12 @@ class PhotographyCustomerView extends Component {
     </div>
   );
   render() {
+   
     return (
+      <Profiler id="PhotographyCustomerView" onRender={
+        (id, phase, actualDuration) => {
+        console.log({id, phase, actualDuration})
+        }} >
       <div className="container-fluid mt-4">
         <div className="row justify-content-md-center">
           <div className="col-md-10">
@@ -82,8 +89,10 @@ class PhotographyCustomerView extends Component {
           </div>
         </div>
       </div>
+      </Profiler>
     );
   }
 }
+
 
 export default PhotographyCustomerView;
