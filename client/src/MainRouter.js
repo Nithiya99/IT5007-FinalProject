@@ -15,6 +15,7 @@ import CustomerDashboard from "./core/Customer/CustomerDashboard";
 import CustomerProfile from "./core/Customer/CustomerProfile";
 import PhotographyCustomerView from "./core/Services/PhotographyCustomerView";
 import Cart from "./core/Customer/Cart";
+import PhotographyDetailView from "./core/Services/PhotographyDetailView";
 
 function MainRouter(props) {
   return (
@@ -52,6 +53,11 @@ function MainRouter(props) {
           exact
           path="/photographyService"
           component={PhotographyCustomerView}
+        ></Route>
+        <Route
+          exact
+          path="/photographyService/:photographyId"
+          component={PhotographyDetailView}
         ></Route>
       </Switch>
     </div>

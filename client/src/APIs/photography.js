@@ -30,6 +30,20 @@ export const listPhotographyByBiz = (businessId) => {
     .catch((err) => console.log(err));
 };
 
+export const photographyDetail = (photographyId) => {
+  console.log(photographyId);
+  return fetch(
+    "http://localhost:5000/api/service/photography/" + `${photographyId}`,
+    {
+      method: "GET",
+    }
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
 export const addPhotography = (businessId, photography) => {
   return fetch(
     "http://localhost:5000/api/service/photography/new/" + `${businessId}`,

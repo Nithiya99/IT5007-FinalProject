@@ -1,6 +1,7 @@
 const Photography = require("../models/photography");
 const formidable = require("formidable");
 const fs = require("fs");
+const { off } = require("process");
 
 exports.photographyServiceCheck = (req, res, next) => {
   res.send("Api Photography running");
@@ -37,6 +38,25 @@ exports.photographyByBusiness = (req, res) => {
     .then((photographies) => {
       res.json({ photographies }).catch((err) => console.log(err));
     });
+};
+
+exports.getPhotographyById = (req, res, next, _id) => {
+  Photography.findById(_id).exec((err, photography) => {
+    if (err || !photography) {
+      return res.status(400).json({
+        error: "Photography not found",
+      });
+    }
+    req.photographyDetails = photography;
+    next();
+  });
+};
+
+exports.getPhotographyDetails = (req, res) => {
+  // We do not want to return the password to the front end
+  req.photographyDetails.hashed_password = undefined;
+  req.photographyDetails.salt = undefined;
+  return res.json(req.photographyDetails);
 };
 
 exports.getAllPhotography = (req, res) => {

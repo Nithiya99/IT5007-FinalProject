@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Button, Badge } from "react-bootstrap";
 import { Basket2Fill, HeartFill } from "react-bootstrap-icons";
 import { listAllPhotography } from "../../APIs/photography";
@@ -33,7 +34,14 @@ class PhotographyCustomerView extends Component {
               alt={item.title}
             />
             <div className="card-body">
-              <h5 className="card-title">{item.title}</h5>
+              <h5 className="card-title">
+                <Link
+                  className="text-dark"
+                  to={`/photographyService/${item._id}`}
+                >
+                  {item.title}
+                </Link>
+              </h5>
               <div style={{ height: "125px", overflow: "auto" }}>
                 <p className="card-text">{item.description}</p>
               </div>
@@ -48,7 +56,6 @@ class PhotographyCustomerView extends Component {
                 >
                   <HeartFill />
                 </button>
-                <button className="btn btn-info mx-auto">View Details</button>
                 <button className="btn btn-warning ml-auto">
                   <Basket2Fill />
                 </button>
